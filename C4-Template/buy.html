@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <title>Web20-C4</title>
+</head>
+
+<body>
+  <div id="navbar">
+    <h2>Masai Library</h2>
+    <div>
+      <a href="./index.html">
+        <h2>Home</h2>
+      </a>
+      <a href="./dashboard.html">
+        <h2>Dashboard</h2>
+      </a>
+      <a href="./buy.html">
+        <h2>My Books</h2>
+      </a>
+      <a href="./bookmark.html">
+        <h2>Bookmark</h2>
+      </a>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Added Date</th>
+        <th>Category</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Append your data here  -->
+    </tbody>
+  </table>
+</body>
+
+</html>
+
+<script>
+
+let arr = JSON.parse(localStorage.getItem('buy-list'));
+find();
+function find()
+{
+  document.querySelector("tbody").innerHTML = null; 
+
+  arr.forEach((ele,ind)=>{
+  let row = document.createElement('tr');
+  let td1= document.createElement("td");
+  let td2= document.createElement("td");
+  let td3= document.createElement("td");
+  let td4= document.createElement("td");
+  let td5= document.createElement("td");
+  let td8= document.createElement("td");
+
+  td1.innerText=ele.name;
+  td2.innerText=ele.author;
+  td3.innerText=ele.desc;
+  td4.innerText=ele.date;
+  td5.innerText=ele.category;
+  
+  td8.innerText=ele.price;
+
+
+  row.append(td1,td2,td3,td4,td5,td8);
+  document.querySelector("tbody").append(row);
+
+    
+})
+}
+
+
+
+</script>
